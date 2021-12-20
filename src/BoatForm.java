@@ -16,10 +16,6 @@ public class BoatForm extends JFrame{
 
     private PaintJComponent paintJPanel;
 
-    private Ship ship;
-    /// <summary>
-    /// Конструктор
-    /// </summary>
     public BoatForm(String title){
 
         mainframe = new JFrame(title);
@@ -55,7 +51,7 @@ public class BoatForm extends JFrame{
     }
     private void setShip(){
         Random rnd = new Random();
-        paintJPanel.setTransport(new Ship(rnd.nextInt(200)+100, rnd.nextInt(500)+1000, Color.BLACK, Color.GRAY, true, true, true, 3));
+        paintJPanel.setTransport(new Ship(rnd.nextInt(500)+100, rnd.nextInt(500)+1000, Color.BLACK, Color.GRAY, true, true, true, 3));
         paintJPanel.getTransport().SetPosition(rnd.nextInt(590) + 10, rnd.nextInt(150) + 20, paintPanel.getWidth(), paintPanel.getHeight());
         paintPanel.add(paintJPanel);
         mainframe.repaint();

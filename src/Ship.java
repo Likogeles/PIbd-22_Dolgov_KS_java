@@ -4,11 +4,11 @@ public class Ship {
     /// <summary>
     /// Левая координата отрисовки катера
     /// </summary>
-    private float _startPosX;
+    private int _startPosX;
     /// <summary>
     /// Правая кооридната отрисовки катера
     /// </summary>
-    private float _startPosY;
+    private int _startPosY;
     /// <summary>
     /// Ширина окна отрисовки
     /// </summary>
@@ -20,11 +20,11 @@ public class Ship {
     /// <summary>
     /// Ширина отрисовки катера
     /// </summary>
-    private int carWidth = 210;
+    private int boatWidth = 210;
     /// <summary>
     /// Высота отрисовки катера
     /// </summary>
-    private int carHeight = 80;
+    private int boatHeight = 80;
     /// <summary>
     /// Максимальная скорость
     /// </summary>
@@ -153,7 +153,8 @@ public class Ship {
     /// <param name="height">Высота картинки</param>
     public void SetPosition(int x, int y, int width, int height)
     {
-        // Продумать логику
+        _startPosX = x;
+        _startPosY = y;
     }
     /// <summary>
     /// Изменение направления перемещения
@@ -166,7 +167,7 @@ public class Ship {
         {
             // вправо
             case Right:
-                if (_startPosX + step < _pictureWidth - carWidth)
+                if (_startPosX + step < _pictureWidth - boatWidth)
                 {
                     _startPosX += step;
                 }
@@ -181,7 +182,7 @@ public class Ship {
                 break;
             //вниз
             case Down:
-                if (_startPosY + step < _pictureHeight - carHeight)
+                if (_startPosY + step < _pictureHeight - boatHeight)
                 {
                     _startPosY += step;
                 }
@@ -194,6 +195,6 @@ public class Ship {
     /// <param name="g"></param>
     public void DrawTransport(Graphics g)
     {
-        g.fillRect(100, 100, 50,50);
+        g.fillRect((int)_startPosX, (int)_startPosY, 50,50);
     }
 }
